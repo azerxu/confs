@@ -1,41 +1,42 @@
-alias goagent="python2.7 ~/source/goagent/local/proxy.py"
-alias gogo="sh ~/soft/GoGo-1.9.0/start.sh"
-alias gosrc="cd ~/source/gopath/src"
-alias gongs="cd ~/source/gopath/src/gongs"
-alias gobin="cd ~/source/gopath/bin"
-alias epy2="source ~/epy2/bin/activate"
-alias vbox="sudo modprobe vboxdrv vboxnetflt vboxnetadp"
-alias estart="sudo /etc/init.d/emacs.azer restart"
-alias git-tree="while true; do clear; git lg|cat; sleep 1; done"
-alias apcreate="sudo create_ap --no-virt wlp3s0 enp0s25 azer"
-alias vpn="sudo tincd -n smartquerier"
-alias samtools="~/soft/samtools-1.2/samtools"
-alias gw="sudo route add -net 192.168.135.0/24 gw 192.168.131.1"
-alias pgw="sudo route add -net 192.168.130.0/24 gw 192.168.131.1"
-alias dn="cd ~/doc/ctDNA/实验室合作伙伴/daan/"
-alias pp="java -jar ~/source/printer/print-server.jar"
-alias gfw="sudo /etc/init.d/shadowsocks.client start"
-alias ss="/home/azer/source/shadowsocks-qt5/build/src/ss-qt5"
+# /etc/skel/.bashrc
+#
+# This file is sourced by all *interactive* bash shells on startup,
+# including some apparently interactive shells such as scp and rcp
+# that can't tolerate any output.  So make sure this doesn't display
+# anything or bad things will happen !
 
-# export GOROOT=/usr/lib/go
-export GOROOT_BOOTSTRAP=/usr/lib/go
+
+# Test for an interactive shell.  There is no need to set anything
+# past this point for scp and rcp, and it's important to refrain from
+# outputting anything in those cases.
+if [[ $- != *i* ]] ; then
+	# Shell is non-interactive.  Be done now!
+	return
+fi
+
+export GOROOT_BOOTSTRAP=${HOME}/source/go.bootstrap
 export GOARCH=amd64
 export GOOS=linux
 export GOROOT=${HOME}/source/go
 export GOPATH=${HOME}/source/gopath
 
-# setting ibus
-# export GTK_IM_MODULE=ibus
-# export XMODIFIERS=@im=ibus
-# export QT_IM_MODULE=ibus
-
 # setting path
 PATH=${GOROOT}/bin:${GOPATH}/bin:${PATH}
-PATH=~/source/xmr-stak/build/bin:${PATH}
-PATH=~/source/ctDNA.pip/tools/:${PATH}
-PATH=~/.cargo/bin:${PATH}
-PATH=${HOME}/soft/vscode/usr/share/code/bin:${PATH}
+PATH=${HOME}/source/ctDNA.pip/tools/:${PATH}
+PATH=${HOME}/soft/vscode/share/code/bin:${PATH}
 export PATH
+
+
+# source ~/.profile
+# alias dn="cd ~/doc/ctDNA/实验室合作伙伴/daan/"
+alias epy2="source ~/dev/epy2/bin/activate"
+alias epy3="source ~/dev/epy3/bin/activate"
+alias ss="/home/azer/source/shadowsocks-qt5/build/src/ss-qt5"
+alias gosrc="cd ~/source/gopath/src"
+alias topme="top -u azer"
+alias ts="cd ~/dev/ts"
+alias ls="ls -hN --color=auto --group-directories-first"
+
 
 ## setting git bash prompt
 
@@ -113,24 +114,33 @@ export PS1="\[$bldgrn\][\u@\h \W]\[$txtred\]\$git_dirty\[$txtblu\]\$git_branch\$
 # Default Git enabled root prompt (for use with "sudo -s")
 # export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
 
-#
-export R_LIBS=${HOME}/.rlibs
+# set go env
+export GOROOT_BOOTSTRAP=${HOME}/source/go.bootstrap
+export GOARCH=amd64
+export GOOS=linux
+export GOROOT=${HOME}/source/go
+export GOPATH=${HOME}/source/gopath
 
-#PATH="/home/azer/perl5/bin${PATH+:}${PATH}";
-#export PATH
+# setting path
+PATH=/opt/oracle-jdk-bin-11.0.2/bin:${PATH}
+PATH=${GOROOT}/bin:${GOPATH}/bin:${PATH}
+PATH=${HOME}/source/ctDNA.pip/tools/:${PATH}
+PATH=${HOME}/soft/vscode/share/code/bin:${PATH}
+PATH=${HOME}/perl5/bin${PATH:+:${PATH}}
+PATH=${HOME}/.local/bin:${PATH}
+export PATH;
 
-PERL5LIB="/home/azer/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}";
-PERL5LIB="/home/azer/soft/vep":${PERL5LIB}
-# PERL5LIB="/home/azer/tmp/CEGMA_v2.5/lib":${PERL5LIB}
-export PERL5LIB
-PERL_LOCAL_LIB_ROOT="/home/azer/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL5LIB="/home/azer/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/azer/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/azer/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/azer/perl5"; export PERL_MM_OPT;
 
+# export TERM=screen-256color
 
-# setting arvados
-HISTIGNORE=$HISTIGNORE:'export ARVADOS_API_TOKEN=*'
-export ARVADOS_API_TOKEN=6b0mgx5b0kh54vl19nnpn74wrskhws4zmuglo58192deyeft7d
-export ARVADOS_API_HOST=avtst.smartquerier.com:10001
-unset ARVADOS_API_HOST_INSECURE
+# powerline-daemon -q
+# POWERLINE_BASH_CONTINUATION=1
+# POWERLINE_BASH_SELECT=1
+# . /home/azer/.local/lib64/python3.6/site-packages/powerline_status-2.7.dev9999_git.b_5d82d544f3366a214732aeb8f781d50ced38ceef_-py3.6.egg/powerline/bindings/bash/powerline.sh
 
+
+export SCIPY_PIL_IMAGE_VIEWER=display
