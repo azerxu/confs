@@ -5,24 +5,30 @@ call plug#begin("~/.vim/bundle")
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'junegunn/goyo.vim'
-Plug 'ervandew/supertab'
-Plug 'vim-syntastic/syntastic'
+"Plug 'junegunn/goyo.vim'
+"Plug 'ervandew/supertab'
+"Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'jreybert/vimagit'
-Plug 'sirver/ultisnips'
+"Plug 'sirver/ultisnips'
 Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-heroku'
-Plug 'honza/vim-snippets'
+"Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-heroku'
+"Plug 'honza/vim-snippets'
 Plug 'mhinz/vim-startify'
-Plug 'majutsushi/tagbar'
+"Plug 'majutsushi/tagbar'
 Plug 'fatih/molokai'
-Plug 'AndrewRadev/splitjoin.vim'
+Plug 'jeffkreeftmeijer/vim-dim'
+"Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'  }
+"Plug 'xolox/vim-notes'
+"Plug 'xolox/vim-misc'
+"Plug 'tamlok/vim-markdown'
+"Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'zxqfl/tabnine-vim'
 call plug#end()
 
 " common setting
@@ -33,6 +39,10 @@ filetype plugin indent on
 set showcmd
 set showmatch
 set tabstop=4
+set ts=4
+set sw=4
+set softtabstop=4
+set expandtab
 set colorcolumn=130
 set number relativenumber
 
@@ -49,7 +59,7 @@ autocmd! bufwritepost .vimrc source %
 autocmd BufWritePre * %s/\s\+$//e
 
 " map ctrl n to line numbers
-:nmap <C-N><C-N> :set invnumber<CR>
+nmap <C-N><C-N> :set invnumber<CR>
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
@@ -65,6 +75,9 @@ map <Leader>m <esc>:tabnext<CR>
 " comment lines
 noremap <Leader>o :Commentary<CR>
 
+" select all and copy
+noremap <Leader>y <esc>gg"+yG<CR>
+
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
@@ -75,11 +88,23 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_pylint_post_args = ['--disable=mixed-indentation,line-too-long,missing-docstring,']
+       " 'too-many-public-methods,too-few-public-methods,import-error,'
+       "    'no-name-in-module,not-callable,locally-disabled,bad-continuation' ]
+
+" let g:syntastic_python_pylint_post_args =
+"     \ '--module-rgx=''[a-zA-Z_][a-zA-Z0-9_]*$'' --max-line-length 120
+" --indent-string=''\t''
+" --disable=mixed-indentation,line-too-long,missing-docstring,too-many-public-methods,too-few-public-methods,import-error,no-name-in-module,not-callable,locally-disabled,bad-continuation'
+
 
 set laststatus=2
 
 " TagBar Setting
 nmap <F8> :TagbarToggle<CR>
+
+" Paster mode setting
+set pastetoggle=<F2>
 
 " set font for GUI vim
 if has("gui_running")
@@ -109,9 +134,9 @@ let g:airline_right_sep = '«'
 "let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
@@ -157,3 +182,12 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+
+" markdown setting
+let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 0
+let g:instant_markdown_open_to_the_world = 1
+let g:instant_markdown_allow_unsafe_content = 1
+let g:instant_markdown_allow_external_content = 0
+let g:instant_markdown_mathjax = 1

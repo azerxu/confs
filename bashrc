@@ -1,5 +1,3 @@
-# /etc/skel/.bashrc
-#
 # This file is sourced by all *interactive* bash shells on startup,
 # including some apparently interactive shells such as scp and rcp
 # that can't tolerate any output.  So make sure this doesn't display
@@ -24,18 +22,28 @@ export GOPATH=${HOME}/source/gopath
 PATH=${GOROOT}/bin:${GOPATH}/bin:${PATH}
 PATH=${HOME}/source/ctDNA.pip/tools/:${PATH}
 PATH=${HOME}/soft/vscode/share/code/bin:${PATH}
+PATH=${HOME}/soft:${PATH}
 export PATH
 
+HISTCONTROL=ignoreboth
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # source ~/.profile
 # alias dn="cd ~/doc/ctDNA/实验室合作伙伴/daan/"
 alias epy2="source ~/dev/epy2/bin/activate"
 alias epy3="source ~/dev/epy3/bin/activate"
+alias torch="source ~/dev/pytorch/bin/activate"
 alias ss="/home/azer/source/shadowsocks-qt5/build/src/ss-qt5"
 alias gosrc="cd ~/source/gopath/src"
 alias topme="top -u azer"
 alias ts="cd ~/dev/ts"
-alias ls="ls -hN --color=auto --group-directories-first"
+alias ry="cd ~/dev/era"
+alias era="cd ~/dev/era"
+alias ls="ls -N --color=auto --group-directories-first"
+alias ll="ls -la"
+
+alias wow="/home/azer/data/wolk/wow.cmd"
 
 
 ## setting git bash prompt
@@ -128,6 +136,7 @@ PATH=${HOME}/source/ctDNA.pip/tools/:${PATH}
 PATH=${HOME}/soft/vscode/share/code/bin:${PATH}
 PATH=${HOME}/perl5/bin${PATH:+:${PATH}}
 PATH=${HOME}/.local/bin:${PATH}
+PATH=${HOME}/.yarn/bin:${PATH}
 export PATH;
 
 PERL5LIB="/home/azer/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
