@@ -3,9 +3,14 @@ Host *
     ForwardX11 no
     ForwardX11Trusted yes
     BatchMode no
+    TCPKeepAlive yes
+    Compression yes
+    StrictHostKeyChecking no
     ConnectTimeout 0
+    # 客户端每隔多少秒向服务器发送一个心跳数据
     ServerAliveInterval 60
-    ServerAliveCountMax 30
+    # 表示上述多少心跳无相应之后，会认为Client已经断开
+    # ServerAliveCountMax 1800
     #User azer
 
 Host era
@@ -15,7 +20,7 @@ Host era
     IdentityFile ~/.ssh/era
 
 Host aws
-    HostName ec2-161-189-84-14.cn-northwest-1.compute.amazonaws.com.cn
+    HostName 161.189.11.208
     User ec2-user
     IdentityFile ~/.ssh/aws.pem
 
@@ -23,6 +28,20 @@ Host github
     HostName github.com
     User git
     IdentityFile ~/.ssh/github
+
+Host gitee
+    HostName gitee.com
+    User git
+    IdentityFile ~/.ssh/gitee
+
+Host v2ray
+    HostName 149.28.26.243
+    User root
+    IdentityFile ~/.ssh/vultr
+
+
+
+
 
 
 ##Our Us Proxy Server ##

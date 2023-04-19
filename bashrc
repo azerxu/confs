@@ -12,18 +12,30 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-export GOROOT_BOOTSTRAP=${HOME}/source/go.bootstrap
+# set go env
+export GOROOT_BOOTSTRAP=/usr/lib/go-bootstrap
 export GOARCH=amd64
 export GOOS=linux
 export GOROOT=${HOME}/source/go
 export GOPATH=${HOME}/source/gopath
 
 # setting path
+PATH=/opt/oracle-jdk-bin-11.0.2/bin:${PATH}
 PATH=${GOROOT}/bin:${GOPATH}/bin:${PATH}
-PATH=${HOME}/source/ctDNA.pip/tools/:${PATH}
-PATH=${HOME}/soft/vscode/share/code/bin:${PATH}
+# PATH=${HOME}/source/ctDNA.pip/tools/:${PATH}
+PATH=${HOME}/soft/vscode/code/bin:${PATH}
 PATH=${HOME}/soft:${PATH}
-export PATH
+PATH=${HOME}/perl5/bin${PATH:+:${PATH}}
+PATH=${HOME}/.local/bin:${PATH}
+PATH=${HOME}/.config/npm.global/bin:${PATH}
+PATH=${HOME}/.yarn/bin:${PATH}
+PATH=${HOME}/.local/share/gem/bin:${PATH}
+export PATH;
+
+PERL5LIB="/home/azer/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/azer/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/azer/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/azer/perl5"; export PERL_MM_OPT;
 
 HISTCONTROL=ignoreboth
 HISTSIZE=10000
@@ -37,13 +49,14 @@ alias torch="source ~/dev/pytorch/bin/activate"
 alias ss="/home/azer/source/shadowsocks-qt5/build/src/ss-qt5"
 alias gosrc="cd ~/source/gopath/src"
 alias topme="top -u azer"
-alias ts="cd ~/dev/ts"
-alias ry="cd ~/dev/era"
-alias era="cd ~/dev/era"
 alias ls="ls -N --color=auto --group-directories-first"
 alias ll="ls -la"
+alias v2ray="cd /home/azer/soft/v2ray&&./v2ray"
+alias e="emacsclient -t --socket-name=/tmp/emacs1000/server"
+# alias vim="nvim -Vnvim.log"
 
 alias wow="/home/azer/data/wolk/wow.cmd"
+alias h3="/home/azer/data/hero3/SOD//h3.cmd"
 
 
 ## setting git bash prompt
@@ -121,35 +134,5 @@ export PS1="\[$bldgrn\][\u@\h \W]\[$txtred\]\$git_dirty\[$txtblu\]\$git_branch\$
 
 # Default Git enabled root prompt (for use with "sudo -s")
 # export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
-
-# set go env
-export GOROOT_BOOTSTRAP=${HOME}/source/go.bootstrap
-export GOARCH=amd64
-export GOOS=linux
-export GOROOT=${HOME}/source/go
-export GOPATH=${HOME}/source/gopath
-
-# setting path
-PATH=/opt/oracle-jdk-bin-11.0.2/bin:${PATH}
-PATH=${GOROOT}/bin:${GOPATH}/bin:${PATH}
-PATH=${HOME}/source/ctDNA.pip/tools/:${PATH}
-PATH=${HOME}/soft/vscode/share/code/bin:${PATH}
-PATH=${HOME}/perl5/bin${PATH:+:${PATH}}
-PATH=${HOME}/.local/bin:${PATH}
-PATH=${HOME}/.yarn/bin:${PATH}
-export PATH;
-
-PERL5LIB="/home/azer/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/azer/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/azer/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/azer/perl5"; export PERL_MM_OPT;
-
-# export TERM=screen-256color
-
-# powerline-daemon -q
-# POWERLINE_BASH_CONTINUATION=1
-# POWERLINE_BASH_SELECT=1
-# . /home/azer/.local/lib64/python3.6/site-packages/powerline_status-2.7.dev9999_git.b_5d82d544f3366a214732aeb8f781d50ced38ceef_-py3.6.egg/powerline/bindings/bash/powerline.sh
-
 
 export SCIPY_PIL_IMAGE_VIEWER=display
