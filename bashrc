@@ -30,6 +30,8 @@ PATH=${HOME}/.local/bin:${PATH}
 PATH=${HOME}/.config/npm.global/bin:${PATH}
 PATH=${HOME}/.yarn/bin:${PATH}
 PATH=${HOME}/.local/share/gem/bin:${PATH}
+PATH=${HOME}/.local/share/nvim/mason/bin/:${PATH}
+# PATH=${HOME}/source/nvim.packer.start/tabnine-nvim/binaries/4.4.312/x86_64-unknown-linux-musl:${PATH}
 export PATH;
 
 PERL5LIB="/home/azer/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
@@ -45,15 +47,20 @@ HISTFILESIZE=20000
 # alias dn="cd ~/doc/ctDNA/实验室合作伙伴/daan/"
 alias epy2="source ~/dev/epy2/bin/activate"
 alias epy3="source ~/dev/epy3/bin/activate"
-alias torch="source ~/dev/pytorch/bin/activate"
-alias ss="/home/azer/source/shadowsocks-qt5/build/src/ss-qt5"
+alias torch="cd /home/azer/source/pytorch&&source ~/dev/pytorch/bin/activate"
 alias gosrc="cd ~/source/gopath/src"
 alias topme="top -u azer"
 alias ls="ls -N --color=auto --group-directories-first"
 alias ll="ls -la"
-alias v2ray="cd /home/azer/soft/v2ray&&./v2ray"
+alias v2ray="cd /home/azer/soft/v2ray&&./v2ray run -d confs 1>>run.log 2>>run.log|tail -f run.log"
+alias gpt="cd /home/azer/soft/edge-gpt&&edge-gpt --cookie-file *.cookie"
 alias e="emacsclient -t --socket-name=/tmp/emacs1000/server"
-# alias vim="nvim -Vnvim.log"
+alias vim="nvim"
+alias proxy="source /home/azer/soft/proxy/tproxy"
+alias unproxy="source /home/azer/soft/proxy/untproxy"
+alias youtube-dl="youtube-dl --proxy socks5://127.0.0.1:9090"
+alias nonvidia="source /home/azer/soft/non-nvidia.cmd"
+alias kkitty="source /home/azer/soft/non-nvidia.cmd&&kitty"
 
 alias wow="/home/azer/data/wolk/wow.cmd"
 alias h3="/home/azer/data/hero3/SOD//h3.cmd"
@@ -136,3 +143,5 @@ export PS1="\[$bldgrn\][\u@\h \W]\[$txtred\]\$git_dirty\[$txtblu\]\$git_branch\$
 # export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
 
 export SCIPY_PIL_IMAGE_VIEWER=display
+export OPENAI_API_KEY=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
+export XCOMPOSEFILE=/usr/share/X11/locale/zh_CN.UTF-8/Compose
