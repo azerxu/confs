@@ -1,5 +1,8 @@
 syntax on
 
+filetype plugin on
+filetype indent on
+
 set encoding=utf-8
 set noerrorbells   "关闭错误信息响铃
 set smartindent    "开启新行自动缩进
@@ -177,6 +180,8 @@ autocmd BufWritePre * %s/\s\+$//e
 " 每次保存文件时, 删除python和ruby文件的尾随空行
 autocmd FileType python,ruby autocmd BufWritePre <buffer> :%s/\($\n\s*\)\+\%$//e
 
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
 "autocmd BufNewFile,BufRead *.py \
 "    set expandtab     |" replace tabs with spacs
 "    set autoindent    |" copy indent when starting a new line
@@ -198,6 +203,8 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+
+map <A-b> <c-o>b
 
 " easier moving between tabs
 map <Leader>n <esc>:tabprevious<CR>
