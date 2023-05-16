@@ -1,0 +1,2 @@
+[submodule "nvim"]
+	url = git@github.com:azerxu/nvim.git
