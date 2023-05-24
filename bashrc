@@ -20,18 +20,19 @@ export GOROOT=${HOME}/source/go
 export GOPATH=${HOME}/source/gopath
 
 # setting path
+# PATH=${HOME}/source/nvim.packer.start/tabnine-nvim/binaries/4.4.312/x86_64-unknown-linux-musl:${PATH}
+# PATH=${HOME}/source/ctDNA.pip/tools/:${PATH}
 PATH=/opt/oracle-jdk-bin-11.0.2/bin:${PATH}
 PATH=${GOROOT}/bin:${GOPATH}/bin:${PATH}
-# PATH=${HOME}/source/ctDNA.pip/tools/:${PATH}
 PATH=${HOME}/soft/vscode/code/bin:${PATH}
 PATH=${HOME}/soft:${PATH}
 PATH=${HOME}/perl5/bin${PATH:+:${PATH}}
-PATH=${HOME}/.local/bin:${PATH}
 PATH=${HOME}/.config/npm.global/bin:${PATH}
 PATH=${HOME}/.yarn/bin:${PATH}
 PATH=${HOME}/.local/share/gem/bin:${PATH}
 PATH=${HOME}/.local/share/nvim/mason/bin/:${PATH}
-# PATH=${HOME}/source/nvim.packer.start/tabnine-nvim/binaries/4.4.312/x86_64-unknown-linux-musl:${PATH}
+PATH=${HOME}/.cargo/bin/:${PATH}
+PATH=${HOME}/.local/bin:${PATH}
 export PATH;
 
 PERL5LIB="/home/azer/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
@@ -55,7 +56,7 @@ alias ll="ls -la"
 alias v2ray="cd /home/azer/soft/v2ray&&./v2ray run -d confs 1>>run.log 2>>run.log|tail -f run.log"
 alias gpt="cd /home/azer/soft/edge-gpt&&edge-gpt --cookie-file *.cookie"
 alias e="emacsclient -t --socket-name=/tmp/emacs1000/server"
-alias vim="nvim"
+alias v="nvim"
 alias proxy="source /home/azer/soft/proxy/tproxy"
 alias unproxy="source /home/azer/soft/proxy/untproxy"
 alias youtube-dl="youtube-dl --proxy socks5://127.0.0.1:9090"
