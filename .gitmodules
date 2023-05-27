@@ -4,3 +4,6 @@
 [submodule "emacs"]
     path = emacs
 	url = git@github.com:azerxu/my_emacs_d.git
+[submodule "tmux"]
+	path = tmux
+	url = git@github.com:azerxu/tmux.git
