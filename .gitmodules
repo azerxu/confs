@@ -1,4 +1,6 @@
 [submodule "nvim"]
+    path = nvim
 	url = git@github.com:azerxu/nvim.git
 [submodule "emacs"]
+    path = emacs
 	url = git@github.com:azerxu/my_emacs_d.git
